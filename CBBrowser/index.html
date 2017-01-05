@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CBBrowser</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="Styles.css" />
+</head>
+<body>
+    <div id="topMenu">
+        <div>
+            <div class='FloatLeft'>
+                <b>CBBrowser</b>
+            </div><div class='FloatRight form-inline'>
+                Server <input type='text' id='txtServer' placeholder='Your CB URL'>
+                Bucket <input type='text' id='txtBucket' placeholder='Your bucket name'>
+                User <input type='text' id='txtUserName'>
+                Password <input type='password' id='txtPassword' />
+                <a href='javascript:doLogin();'>Login</a>
+                <a href='javascript:doLogout();'>Logout</a>
+                
+            </div>
+        </div>
+        <div class='ClearBoth'></div>
+
+
+    </div>
+    <div class="container">
+        <div class="Above12" id="lblSayuser">&nbsp;</div>
+        <div class="Above12">
+            <div class="form-inline">
+                <button type="button" class="btn btn-primary" onclick="fetchDocument('_all_docs');">_all_docs</button>
+                
+                <div class="form-group">
+                    <label for="txtDocumentID">Document ID</label>
+                    <input type="text" class="form-control" id="txtDocumentID" placeholder="">
+                </div>
+                <button class="btn btn-primary" onclick="findIdUsingForm();">GET</button>
+                <div class="form-group">
+                    <label for="txtFilter">Filter</label>
+                    <input type="text" class="form-control" id="txtFilter" placeholder="filter ids in all calls">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="filterChanged();">refresh</button>
+                <input type='text' class='form-control' id='txtExtras' onkeyup='javascript:changedExtras();' placeholder='Additional dotted field'>
+                <a href="javascript:makeCmd('GET');">GET</a> | <a href="javascript:makeCmd('DEL');">DEL</a> | <a href="javascript:makeCmd('ATT');">ATT</a> | <a href="javascript:makeCmd('PUT');">PUT</a>
+            </div>
+        </div>
+        <div class="Above12">
+            <div class="container">
+                <div id="masterList" class="col-md-6 Formatted">
+                    <p>Enter the Couchbase URL, including bucket, and then your user details.<br/>
+                    Click Login to check you're live.</p>
+                </div>
+                <div id="results" class="col-md-6 Raw">Raw Results</div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
