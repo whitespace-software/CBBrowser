@@ -246,7 +246,7 @@ function makeLink(item) {
 function formatListItem(item) {
     var elts = [item.id, item.type, item.createdAt], strs = [];
     if (item.value)
-        elts.push(item.value.rev);
+        elts.push( parseInt(item.value.rev) );
     $.each(elts, function (i, itm) {
         if (itm)
             strs.push(itm.toString());
