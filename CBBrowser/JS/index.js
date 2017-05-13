@@ -1,5 +1,9 @@
 ﻿function fillResults(data) {
-    $("#results").html("<pre>" + JSON.stringify(data, null, 2) + "</pre>");
+	var str = JSON.stringify(data, null, 2);
+    var r1 = new RegExp( "<", 'g');
+    var r2 = new RegExp( ">", 'g');
+    str = str.replace( r1, "&lt;" ).replace( r2, "&gt;");
+    $("#results").html("<pre>" + str + "</pre>");
 }
 
 function setLastID(id) {
